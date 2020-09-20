@@ -53,4 +53,18 @@ public class CurrentBoardTests extends TestBase{
                 .findElements(By.xpath("//div[@class='list js-list-content']")).size());
     }
 
+    @Test
+    public void DeleteListTest() throws InterruptedException {
+        System.out.println("Lists quantity before: "+ driver
+                .findElements(By.xpath("//div[@class='list js-list-content']")).size());
+        WebElement listMenuIcon= driver.findElement(By.xpath("//div[@class=" +
+               "'board-main-content']//div[1]//div[1]//div[1]//div[2]//a[1]"));
+        listMenuIcon.click();
+        WebElement archiveThisList = driver.findElement(By.xpath("//a[@class='js-close-list']"));
+        archiveThisList.click();
+        Thread.sleep(5000);
+        System.out.println("Lists quantity after: "+driver
+                .findElements(By.xpath("//div[@class='list js-list-content']")).size());
+    }
+
 }
