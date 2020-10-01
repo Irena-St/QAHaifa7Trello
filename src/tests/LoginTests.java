@@ -72,9 +72,9 @@ public class LoginTests extends TestBase {
         WebElement enterEmail = driver.findElement((By.id("user")));
         enterEmail.click();
         enterEmail.clear();
-        enterEmail.sendKeys("semenchuk833@gmail.com");
-        waitUntilElementIsClickable(By.id("login"),10);
-        WebElement atlassian = driver.findElement(By.id("login"));
+        enterEmail.sendKeys(LOGIN);
+        waitUntilElementIsClickable(By.xpath("//input[@value='Log in with Atlassian']"),10);
+        WebElement atlassian = driver.findElement(By.xpath("//input[@value='Log in with Atlassian']"));
         atlassian.click();
         waitUntilElementIsClickable(By.id("password"),10);
         WebElement passwordField = driver.findElement(By.id("password"));
@@ -85,10 +85,10 @@ public class LoginTests extends TestBase {
         WebElement loginButton = driver.findElement(By.xpath("//button[@id='login-submit']"));
         loginButton.click();
         waitUntilElementIsClickable(By.xpath("//div[@id='login-error']"),15);
-        System.out.println("Error: " + driver
-                .findElement(By.xpath("//div[@id='login-error']")).getText());
-         Assert.assertEquals(driver.findElement(By.xpath("//div[@id='login-error']")).getText(),
-                "Incorrect email address and/ or password.Do you need help logging in?");
+        /*System.out.println("Error: " + driver
+                .findElement(By.xpath("//div[@id='login-error']")).getText());*/
+         Assert.assertTrue(driver.findElement(By.xpath("//div[@id='login-error']"))
+                         .getText().equals("Incorrect email address and/ or password.Do you need help logging in?"));
     }
     @Test
     public void positiveTest() {
@@ -100,7 +100,7 @@ public class LoginTests extends TestBase {
         enterEmail.sendKeys(LOGIN);
         waitUntilElementIsClickable(By.xpath("//input[@value='Log in with Atlassian']"),10);
         // Thread.sleep(2000);
-        WebElement atlassian = driver.findElement(By.id("login"));
+        WebElement atlassian = driver.findElement(By.xpath("//input[@value='Log in with Atlassian']"));
         atlassian.click();
         waitUntilElementIsClickable(By.id("password"),15);
         WebElement passwordField = driver.findElement(By.id("password"));
@@ -116,9 +116,8 @@ public class LoginTests extends TestBase {
        /* System.out.println("Button text is: "+driver
                 .findElement(By.xpath("//button[@data-test-id " +
                         "= 'header-boards-menu-button']")).getText());*/
-       Assert.assertTrue(driver.findElement(By.xpath(//button[@data-test-id \" +\n" +
-               "                        = 'header-boards-menu-button']")).getText().equals("Boards"),
-               "The text on the button is not correct");
+       Assert.assertTrue (driver.findElement(By.xpath("//button[@data-test-id = 'header-boards-menu-button']"))
+                                       .getText().equals("Boards"), "The text on the button is not correct");
 
     }
 }
