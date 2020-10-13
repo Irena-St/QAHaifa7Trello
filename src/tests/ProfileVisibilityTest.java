@@ -2,6 +2,7 @@
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,9 +19,9 @@ import pages.*;
 
      @BeforeMethod
     public void initTests() {
-         loginPage = new LoginPageHelper(driver);
-         boardsPage = new BoardsPageHelper(driver);
-         homePage = new HomePageHelper(driver);
+         loginPage = PageFactory.initElements(driver, LoginPageHelper.class);
+         boardsPage = PageFactory.initElements(driver,BoardsPageHelper.class);
+         homePage = PageFactory.initElements(driver,HomePageHelper.class);
          qaHaifa7CurrentBoard= new CurrentBoardPageHelper(driver,"QA Haifa7");
          menuPage = new MenuPageHelper(driver);
          profileVisibility = new ProfileVisibilityHelper(driver);

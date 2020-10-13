@@ -53,7 +53,7 @@ public class CurrentBoardTests extends TestBase {
         qaHaifa7CurrentBoard.createNewList();
         int listsAfterAdding = qaHaifa7CurrentBoard.getListsQuantity();
         Assert.assertEquals(listsBeforeAdding +1, listsAfterAdding,
-                "The quantity of lists is not equal to expected quantitty");
+                "The quantity of lists is not equal to expected quantity");
 
     }
 
