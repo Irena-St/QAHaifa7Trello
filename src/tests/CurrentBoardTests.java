@@ -28,8 +28,8 @@ public class CurrentBoardTests extends TestBase {
                 .openLoginPage();
         loginPage.waitUntilPageIsLoaded()
                  .loginAsAtlassian(LOGIN,PASSWORD);
-        boardsPage.waitUntilPageIsLoaded()
-                  .openCurrentBoardPage("QA Haifa7");
+        boardsPage.waitUntilPageIsLoaded();
+        boardsPage.openCurrentBoardPage("QA Haifa7");
         qaHaifa7CurrentBoard.waitUntilPageIsLoaded();
     }
 
