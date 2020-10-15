@@ -6,11 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class PageBase {
     WebDriver driver;
 
     public PageBase(WebDriver driver){
         this.driver = driver;
+
     }
     public void waitUntilElementIsClickable(By locator, int time) {
         try {
@@ -21,7 +24,7 @@ public class PageBase {
     }
     public void waitUntilElementIsClickable(WebElement element, int time) {
         try {
-            new WebDriverWait(driver, time).until(ExpectedConditions.elementToBeClickable(element));
+            new WebDriverWait(driver,time).until(ExpectedConditions.elementToBeClickable(element));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,6 +36,7 @@ public class PageBase {
             e.printStackTrace();
         }
     }
+
     public void waitUntilElementIsInvisible(By locator, int time) {
         try {
             new WebDriverWait(driver,time).until(ExpectedConditions.invisibilityOfElementLocated(locator));
@@ -40,6 +44,7 @@ public class PageBase {
             e.printStackTrace();
         }
     }
+
     public void waitUntilElementIsInvisible(WebElement element, int time) {
         try {
             new WebDriverWait(driver,time).until(ExpectedConditions.invisibilityOf(element));
@@ -55,6 +60,7 @@ public class PageBase {
             e.printStackTrace();
         }
     }
+
     public void waitUntilElementIsVisible(WebElement element, int time) {
         try {
             new WebDriverWait(driver,time).until(ExpectedConditions.visibilityOf(element));
@@ -63,13 +69,27 @@ public class PageBase {
         }
     }
 
-
-    public void waitUntilElementsAreVisible(WebElement element, int time) {
+    public void waitUntilElementsAreVisible(By locator, int time) {
         try {
-            new WebDriverWait(driver,time).until(ExpectedConditions.visibilityOf(element));
+            new WebDriverWait(driver,time).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public void waitUntilElementsAreVisible(List<WebElement> elementsList, int time) {
+        try {
+            new WebDriverWait(driver,time).until(ExpectedConditions.visibilityOfAllElements(elementsList));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void editField(WebElement element, String value) {
+        element.click();
+        element.clear();
+        element.sendKeys(value);
+    }
+
 
 }

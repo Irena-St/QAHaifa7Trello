@@ -24,12 +24,12 @@ public class CurrentBoardTests extends TestBase {
         homePage = PageFactory.initElements(driver,HomePageHelper.class);
         qaHaifa7CurrentBoard = new CurrentBoardPageHelper(driver,"QA Haifa7");
 
-        homePage.waitUntilPageIsLoaded();
-        homePage.openLoginPage();
-        loginPage.waitUntilPageIsLoaded();
-        loginPage.loginAsAtlassian(LOGIN,PASSWORD);
-        boardsPage.waitUntilPageIsLoaded();
-        boardsPage.openCurrentBoardPage("QA Haifa7");
+        homePage.waitUntilPageIsLoaded()
+                .openLoginPage();
+        loginPage.waitUntilPageIsLoaded()
+                 .loginAsAtlassian(LOGIN,PASSWORD);
+        boardsPage.waitUntilPageIsLoaded()
+                  .openCurrentBoardPage("QA Haifa7");
         qaHaifa7CurrentBoard.waitUntilPageIsLoaded();
     }
 
@@ -70,8 +70,6 @@ public class CurrentBoardTests extends TestBase {
         Assert.assertEquals(quantityListsAtTheEnd,quantityListsInTheBeginning-1,
                 "The quantityListsAtTheEnd is not quantityListsInTheBeginning-1");
     }
-
-
 
 
 }

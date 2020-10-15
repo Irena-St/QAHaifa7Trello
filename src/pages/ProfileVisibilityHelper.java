@@ -20,22 +20,20 @@ public class ProfileVisibilityHelper extends PageBase {
         super(driver);
     }
 
-    public void waitUntilPageIsLoaded() {
+    public ProfileVisibilityHelper waitUntilPageIsLoaded() {
         waitUntilElementIsClickable(userNameField,10);
         waitUntilElementIsVisible(profileTab,10);
+        return this;
     }
     public String getProfileVisibilityTabName(){
-      // WebElement profileTab = driver.findElement(By.xpath("//a[@data-tab='profile']"));
         return profileTab.getText();
     }
 
     public String getTitleMenuIcon() {
-        //WebElement memberMenuIcon = driver.findElement(By.xpath("//button[@aria-label = 'Open Member Menu']"));
-        return memberMenuIcon.getAttribute("title");
+         return memberMenuIcon.getAttribute("title");
     }
 
     public String getUserName() {
-       // WebElement userNameField = driver.findElement(By.xpath("//input[@name='username']"));
         return userNameField.getAttribute("value");
     }
 }

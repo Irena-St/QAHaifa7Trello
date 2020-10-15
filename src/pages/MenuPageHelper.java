@@ -12,12 +12,15 @@ public class MenuPageHelper extends PageBase {
 
     public MenuPageHelper(WebDriver driver) {
         super(driver);
+
     }
-    public void waitUntilMenuPageIsLoaded() {
+    public MenuPageHelper waitUntilPageIsLoaded() {
         waitUntilElementIsClickable(profileVisibility,10);
+        return this;
     }
 
-    public void openProfileVisibility() {
+    public MenuPageHelper openProfileVisibility() {
         profileVisibility.click();
+        return this;
     }
 }

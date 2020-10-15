@@ -9,17 +9,20 @@ public class BoardsPageHelper extends PageBase {
     @FindBy(xpath = "//button[@data-test-id = 'header-boards-menu-button']")
     WebElement boardsButton;
 
+
     public BoardsPageHelper (WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
-    public void waitUntilPageIsLoaded() {
+    public BoardsPageHelper waitUntilPageIsLoaded() {
         waitUntilElementIsClickable(boardsButton,45);
+        return this;
     }
-    public void openCurrentBoardPage(String boardName) {
+    public BoardsPageHelper openCurrentBoardPage(String boardName) {
         WebElement board = driver.findElement(By
                 .xpath("//li[@class='boards-page-board-section-list-item'][.//div[@title ='" + boardName+"']]"));
         board.click();
+        return this;
     }
     public String getBoardsIconName(){
         return  boardsButton.getText();
