@@ -13,8 +13,8 @@ public class PageBase {
 
     public PageBase(WebDriver driver){
         this.driver = driver;
-
     }
+
     public void waitUntilElementIsClickable(By locator, int time) {
         try {
             new WebDriverWait(driver,time).until(ExpectedConditions.elementToBeClickable(locator));
@@ -29,6 +29,7 @@ public class PageBase {
             e.printStackTrace();
         }
     }
+
     public void waitUntilElementIsPresent(By locator, int time) {
         try {
             new WebDriverWait (driver,time).until(ExpectedConditions.presenceOfElementLocated(locator));

@@ -33,8 +33,8 @@ public class ProfileVisibilityTest extends TestBase{
                 .openCurrentBoardPage("QA Haifa7");
         qaHaifa7CurrentBoard.waitUntilPageIsLoaded();
         qaHaifa7CurrentBoard.openMenuPage();
-        menuPage.waitUntilPageIsLoaded()
-                .openProfileVisibility();
+        menuPage.waitUntilPageIsLoaded();
+        menuPage .openProfileVisibility();
         profileVisibility.waitUntilPageIsLoaded();
     }
 
